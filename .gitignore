@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# Builds and caches
+frontend/dist/
+frontend/.vite/
+coverage/
+
+# Uploaded and generated files
+uploads/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+*.local
+*.backup

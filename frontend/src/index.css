@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pulse animation for typing indicators */
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+/* Smooth scrollbar for chat containers */
+.chat-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb {
+    background: #CBD5E0;
+    border-radius: 999px;
+}
+.chat-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Admin sidebar icon gap */
+aside nav a svg + *,
+aside nav a .chakra-icon + * {
+    margin-left: 10px !important;
+}
