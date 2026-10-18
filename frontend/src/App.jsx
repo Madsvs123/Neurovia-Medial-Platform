@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
-import { Routes, Route } from 'react-router-dom';
+import { Box, Button, Heading, Text } from '@chakra-ui/react';
+import { Link, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -23,8 +23,10 @@ import SubscriptionPage from './pages/SubscriptionPage';
 import { AuthRoute, PublicRoute } from './components/ProtectedRoute';
 
 const NotFoundPage = () => (
-  <Box textAlign="center" py={20}>
-    <h1>404 - Page Not Found</h1>
+  <Box textAlign="center" py={20} px={4}>
+    <Heading size="lg" mb={3}>Page not found</Heading>
+    <Text color="gray.500" mb={6}>That address is not part of Neurovia.</Text>
+    <Button as={Link} to="/" colorScheme="teal">Back to home</Button>
   </Box>
 );
 
