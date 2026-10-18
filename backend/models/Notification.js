@@ -19,7 +19,7 @@ const notificationSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ['subscription', 'education', 'program', 'clinical_case', 'flashcard', 'doctor_tool', 'quiz', 'course', 'lesson', 'system', 'user', 'payment', 'new_message', 'new_conversation', 'thread_assigned', 'thread_escalated', 'thread_status', 'sla_breach'],
+    enum: ['subscription', 'education', 'program', 'clinical_case', 'flashcard', 'doctor_tool', 'quiz', 'course', 'lesson', 'system', 'user', 'payment'],
     required: true
   },
   link: {
