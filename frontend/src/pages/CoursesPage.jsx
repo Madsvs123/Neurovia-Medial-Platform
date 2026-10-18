@@ -128,7 +128,7 @@ const CoursesPage = () => {
           <Box textAlign="center" py={20} as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <Icon as={FiBookOpen} boxSize={16} color="gray.300" mb={4} />
             <Heading size="md" mb={2}>No courses found</Heading>
-            <Text color="gray.500">Try different filters</Text>
+            <Text color="gray.500">Nothing matches these filters yet. Clear them or check back after new courses are published.</Text>
           </Box>
         ) : (
           <>
