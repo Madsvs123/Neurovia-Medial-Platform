@@ -148,7 +148,7 @@ const LoginPage = () => {
             Welcome Back!
           </Heading>
           <Text fontSize="lg" opacity={0.9}>
-            Sign in to access your medical education resources
+            Sign in to continue your courses, quizzes, and programs.
           </Text>
         </Box>
       </Box>
