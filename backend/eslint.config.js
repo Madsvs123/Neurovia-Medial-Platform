@@ -20,7 +20,6 @@ module.exports = [
     },
   },
   {
-    // The new messaging module is held to a stricter standard than legacy code.
     files: ['modules/**/*.js', 'realtime/**/*.js', 'config/**/*.js', 'scripts/**/*.js'],
     rules: {
       'no-unused-vars': ['error', { argsIgnorePattern: '^_', caughtErrors: 'none' }],
