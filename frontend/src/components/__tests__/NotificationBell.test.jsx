@@ -17,7 +17,7 @@ const makeApi = (notifs) => ({
 describe('NotificationBell', () => {
   it('renders mixed read/unread lists and survives list changes (hook-order regression)', async () => {
     const notifs = [
-      { _id: '1', title: 'First', message: 'a', type: 'new_message', read: false, createdAt: new Date().toISOString() },
+      { _id: '1', title: 'First', message: 'a', type: 'course', read: false, createdAt: new Date().toISOString() },
       { _id: '2', title: 'Second', message: 'b', type: 'system', read: true, createdAt: new Date().toISOString() },
     ];
     const api = makeApi(notifs);
