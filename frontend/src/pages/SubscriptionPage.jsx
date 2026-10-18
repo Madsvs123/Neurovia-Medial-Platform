@@ -17,8 +17,7 @@ const PLAN_DETAILS = {
       'Unlimited course access',
       'All quizzes and exams',
       'Full clinical case library',
-      'Certificates of completion',
-      'Priority support'
+      'Certificates of completion'
     ]
   }
 };

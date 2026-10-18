@@ -18,15 +18,13 @@ const PLANS = [
       'Access to 5 free courses',
       'Basic quizzes',
       'Limited clinical cases',
-      'Community support',
       'No certificates'
     ],
     disabledFeatures: [
       'Premium courses',
       'Advanced quizzes',
       'Full clinical case library',
-      'Certificates of completion',
-      'Priority support'
+      'Certificates of completion'
     ],
     color: 'blue',
     buttonText: 'Current Plan',
@@ -43,7 +41,6 @@ const PLANS = [
       'All quizzes and exams',
       'Full clinical case library',
       'Certificates of completion',
-      'Priority support',
       'Early access to new content',
       'Downloadable resources',
       'Progress tracking'
@@ -218,11 +215,6 @@ const PlanPage = () => {
           <Text fontSize="sm" color="gray.500">Certificates</Text>
           <FiXCircle color="gray.400" />
           <FiCheckCircle color="green.500" />
-          <Box></Box>
-
-          <Text fontSize="sm" color="gray.500">Support</Text>
-          <Text>Community</Text>
-          <Text>Priority</Text>
           <Box></Box>
 
           <Text fontSize="sm" color="gray.500">Price</Text>
