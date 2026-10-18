@@ -71,7 +71,7 @@ const AdminDashboard = () => {
       <Flex justify="space-between" align="center" mb={2}>
         <Heading size="lg">Dashboard</Heading>
       </Flex>
-      <Text color="gray.500" mb={6}>System Overview &amp; Analytics</Text>
+      <Text color="gray.500" mb={6}>Users, courses, subscriptions, and payments at a glance.</Text>
 
       {/* Stats Cards */}
       <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={5} mb={8}>
