@@ -24,8 +24,6 @@ const TYPE_COLORS = {
   system: 'gray',
   user: 'red',
   payment: 'green',
-  new_message: 'blue',
-  new_conversation: 'teal',
 };
 
 const TIME_AGO = (date) => {
