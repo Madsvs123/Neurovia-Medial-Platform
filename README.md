@@ -4,6 +4,15 @@ Neurovia is a medical education platform for learning, teaching, and day-to-day 
 
 The repository ships without demo accounts or sample clinical content. You create the first users and all course material yourself.
 
+## Features
+
+- Courses, lessons, quizzes, flashcards, and clinical cases
+- Structured programs with enrollments
+- Disease, medication, and symptom reference data
+- Doctor tools for clinical study
+- Separate student, educator, and administrator areas
+- In-app notifications
+
 ## Intended users
 
 - **Students** learn from courses, lessons, quizzes, flashcards, clinical cases, and structured programs.
@@ -15,7 +24,7 @@ The repository ships without demo accounts or sample clinical content. You creat
 
 | Area | Stack |
 | --- | --- |
-| Frontend | React 18, Vite, React Router, Chakra UI, Tailwind CSS, Redux Toolkit, TanStack Query, Socket.IO client, i18next |
+| Frontend | React 18, Vite, React Router, Chakra UI, Tailwind CSS, Redux Toolkit, TanStack Query, Socket.IO client |
 | Backend | Node.js, Express, MongoDB with Mongoose, JWT, Socket.IO, Winston |
 | Optional integrations | Stripe, PayPal, Google sign-in, SMTP email |
 
