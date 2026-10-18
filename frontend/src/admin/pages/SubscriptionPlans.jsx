@@ -193,7 +193,7 @@ const SubscriptionPlans = () => {
                   <FormLabel mb={0}>Tools Access</FormLabel>
                 </FormControl>
               </SimpleGrid>
-              <FormControl><FormLabel>Features (one per line)</FormLabel><Textarea value={form.features} onChange={(e) => setForm({ ...form, features: e.target.value })} rows={4} placeholder="Unlimited AI conversations&#10;All quizzes&#10;Priority support" /></FormControl>
+              <FormControl><FormLabel>Features (one per line)</FormLabel><Textarea value={form.features} onChange={(e) => setForm({ ...form, features: e.target.value })} rows={4} placeholder="All quizzes&#10;Clinical cases&#10;Certificates" /></FormControl>
             </VStack>
           </ModalBody>
           <ModalFooter gap={3}>

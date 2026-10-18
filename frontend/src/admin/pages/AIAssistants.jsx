@@ -8,8 +8,8 @@ import {
   Textarea, Divider, Tag, Table, Thead, Tbody, Tr, Th, Td,
   Tabs, TabList, TabPanels, Tab, TabPanel,
 } from '@chakra-ui/react';
-import { FiSearch, FiPlus, FiEdit2, FiTrash2, FiRefreshCw, FiToggleLeft, FiToggleRight, FiCpu, FiMessageSquare, FiStar } from 'react-icons/fi';
-import { getAIAssistants, createAIAssistant, updateAIAssistant, toggleAIAssistant, deleteAIAssistant, getAIConversations, getAIFeedback } from '../services/api';
+import { FiSearch, FiPlus, FiEdit2, FiTrash2, FiRefreshCw, FiToggleLeft, FiToggleRight, FiCpu } from 'react-icons/fi';
+import { getAIAssistants, createAIAssistant, updateAIAssistant, toggleAIAssistant, deleteAIAssistant } from '../services/api';
 import dayjs from 'dayjs';
 
 const AIAssistants = () => {

@@ -317,7 +317,7 @@ const deleteUser = async (req, res) => {
       await notify({
         userId: user._id,
         title: 'Account Suspended',
-        message: 'Your account has been suspended by an admin. Please contact support for more information.',
+        message: 'Your account has been suspended by an admin.',
         type: 'user',
         actorId: req.user.id,
       });

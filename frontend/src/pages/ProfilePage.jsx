@@ -89,7 +89,7 @@ const ProfilePage = () => {
           {error === 'Profile not found and could not be created automatically. Required fields may be missing.' && (
             <Box mt={2}>
               <Text fontSize="sm">Your profile could not be loaded or created automatically.</Text>
-              <Text fontSize="sm">Please try refreshing the page or contact support.</Text>
+              <Text fontSize="sm">Please try refreshing the page.</Text>
             </Box>
           )}
         </Alert>
