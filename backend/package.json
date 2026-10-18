@@ -15,8 +15,7 @@
     "format:check": "prettier --check \"**/*.js\"",
     "logs:clean": "rm -rf logs/*",
     "docs": "jsdoc -c jsdoc.config.json",
-    "precommit": "lint-staged",
-    "migrate:messaging": "node scripts/migrateConversationsToThreads.js"
+    "precommit": "lint-staged"
   },
   "keywords": [
     "medical",
@@ -76,7 +75,8 @@
       "/node_modules/"
     ],
     "collectCoverageFrom": [
-      "modules/**/*.js",
+      "controllers/**/*.js",
+      "routes/**/*.js",
       "realtime/**/*.js",
       "config/**/*.js"
     ]

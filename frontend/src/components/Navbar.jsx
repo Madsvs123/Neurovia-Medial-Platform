@@ -10,8 +10,8 @@ import { getPanelSwitchOptions } from '../utils/roleAuth';
 import {
   FiBookOpen, FiChevronDown, FiMenu, FiGrid,
   FiBook, FiClipboard, FiActivity, FiAward,
-  FiFileText, FiTool, FiUser, FiHelpCircle,
-  FiLogOut, FiShield, FiMessageSquare
+  FiFileText, FiTool, FiUser,
+  FiLogOut, FiShield
 } from 'react-icons/fi';
 import { GiMicroscope } from 'react-icons/gi';
 import NotificationBell from './NotificationBell';
@@ -164,19 +164,6 @@ const Navbar = () => {
                     >
                       My Programs
                     </MenuItem>
-                    <MenuItem
-                      icon={<FiMessageSquare />}
-                      onClick={() => navigate('/messages')}
-                    >
-                      Messages
-                    </MenuItem>
-                    {/* Educator Panel is provided in the panel switcher below; removed explicit link */}
-                    <MenuItem
-                      icon={<FiHelpCircle />}
-                      onClick={() => navigate('/support')}
-                    >
-                      Support
-                    </MenuItem>
                     {/* Panel Switching - Dynamic based on user role */}
                     {getPanelSwitchOptions().length > 0 && (
                       <>
@@ -216,13 +203,6 @@ const Navbar = () => {
                       onClick={() => navigate('/register')}
                     >
                       Register
-                    </MenuItem>
-                    <Divider />
-                    <MenuItem
-                      icon={<FiHelpCircle />}
-                      onClick={() => navigate('/support')}
-                    >
-                      Support
                     </MenuItem>
                   </>
                 )}

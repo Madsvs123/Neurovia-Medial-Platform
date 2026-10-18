@@ -103,11 +103,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Rate limiting
-// The conversation/notification endpoints are polled every few seconds per
-// open tab (messages, unread counts, conversation lists). Under the default
-// limiter that traffic alone blew through the window in minutes and started
-// returning 429s during normal use, so polling-heavy routes get their own,
-// much looser limiter. Everything else keeps the stricter default.
+// Notification endpoints are polled while a tab is open, so they get a
+// looser limiter than the rest of the API.
 const limiter = rateLimit({
   windowMs: config.security.rateLimiting.windowMs,
   max: config.security.rateLimiting.max,
@@ -124,7 +121,7 @@ const pollingLimiter = rateLimit({
   legacyHeaders: false
 });
 
-app.use(['/api/v2/messaging', '/api/notifications'], pollingLimiter);
+app.use('/api/notifications', pollingLimiter);
 app.use(limiter);
 
 // Body parser
@@ -210,7 +207,6 @@ const symptomRoutes = require('./routes/symptomRoutes');
 const doctorToolRoutes = require('./routes/doctorToolRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
 const activityLogRoutes = require('./routes/activityLogRoutes');
-const messagingRoutes = require('./modules/messaging/routes');
 
 // Basic route
 app.get('/', (req, res) => {
@@ -237,10 +233,6 @@ app.use('/api/program-enrollments', programEnrollmentRoutes);
 app.use('/api/program-resources', programResourceRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/activity-logs', activityLogRoutes);
-// Messaging v2 (threads, messages, queue, templates). The old
-// /api/conversations + /api/messages surface was removed — see
-// scripts/migrateConversationsToThreads.js for the data migration.
-app.use('/api/v2/messaging', messagingRoutes);
 
 // Import middleware
 const { errorHandler, notFoundHandler, requestLogger } = require('./middleware/errorMiddleware');
@@ -261,17 +253,9 @@ const server = app.listen(PORT, () => {
   winston.info(`Server started in ${config.server.env} mode on port ${PORT}`);
 });
 
-// Real-time layer for conversations/notifications. Falls back gracefully —
-// all conversation/notification data also loads via plain REST polling, so a
-// client that can't establish a socket (or a dropped connection) still works.
+// Live notification delivery. The bell also loads notifications over REST.
 const { initSocket } = require('./realtime/socket');
 initSocket(server, { jwtSecret: config.jwt.secret });
-
-// Domain-event subscribers (in-app notifications) and the SLA/auto-close job.
-require('./modules/notifications/messagingSubscriber').subscribe();
-if (config.server.env !== 'test') {
-  require('./modules/messaging/services/slaService').start();
-}
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {

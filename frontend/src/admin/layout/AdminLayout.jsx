@@ -10,7 +10,7 @@ import {
   FiBarChart2, FiUsers, FiSettings, FiLogOut, FiMenu,
   FiChevronLeft, FiChevronRight,
   FiCreditCard, FiBookOpen, FiLayers, FiActivity, FiBell, FiCpu,
-  FiHelpCircle, FiZap, FiMessageSquare,
+  FiHelpCircle, FiZap,
   FiHome,
 } from 'react-icons/fi';
 import NotificationBell from '../../components/NotificationBell';
@@ -26,7 +26,6 @@ const NAV_ITEMS = [
   { path: '/admin/quizzes', label: 'Quizzes', icon: FiHelpCircle },
   { path: '/admin/clinical-cases', label: 'Clinical Cases', icon: FiBookOpen },
   { path: '/admin/flashcards', label: 'Flashcards', icon: FiZap },
-  { path: '/admin/messages', label: 'Messages', icon: FiMessageSquare },
   { path: '/admin/users', label: 'Users', icon: FiUsers },
   { path: '/admin/notifications', label: 'Notifications', icon: FiBell },
   { path: '/admin/activity-logs', label: 'Activity Logs', icon: FiActivity },

@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getUserInfo } from '../utils/auth';
-import { FiArrowLeft, FiBookOpen, FiClipboard, FiHeart, FiExternalLink, FiUsers, FiX, FiEdit2, FiPlus, FiTrash2, FiSave, FiUserPlus, FiMessageSquare, FiLogOut, FiZap } from 'react-icons/fi';
+import { FiArrowLeft, FiBookOpen, FiClipboard, FiHeart, FiExternalLink, FiUsers, FiX, FiEdit2, FiPlus, FiTrash2, FiSave, FiUserPlus, FiLogOut, FiZap } from 'react-icons/fi';
 import { getProgramById, getProgramResources, updateProgram, toggleProgram, deleteProgram, getEnrollmentsByProgram, removeUserFromProgram, getCourses, getQuizzes, getClinicalCases, getFlashcards, addProgramResource, removeProgramResource, addEducatorToProgram, removeEducatorFromProgram, getEducators, getUsers, addUserToProgram } from '../services/api';
 
 const EducatorProgramDetail = () => {
@@ -493,14 +493,6 @@ const EducatorProgramDetail = () => {
                             <Td>{new Date(enrollment.joinedAt).toLocaleDateString()}</Td>
                             <Td px={6} textAlign="right">
                               <HStack spacing={1} justify="flex-end">
-                                <IconButton
-                                  icon={<FiMessageSquare />}
-                                  size="sm"
-                                  variant="ghost"
-                                  colorScheme="pink"
-                                  aria-label="Message student"
-                                  onClick={(e) => { e.stopPropagation(); navigate(`/educator/messages/new?kind=direct&to=${enrollment.userId?._id}&programId=${program._id}`); }}
-                                />
                                 <IconButton
                                   icon={<FiX />}
                                   size="sm"

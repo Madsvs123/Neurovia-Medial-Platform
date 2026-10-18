@@ -6,7 +6,7 @@ The repository ships without demo accounts or sample clinical content. You creat
 
 ## Intended users
 
-- **Students** learn from courses, lessons, quizzes, flashcards, clinical cases, and structured programs, and can message support from the student portal.
+- **Students** learn from courses, lessons, quizzes, flashcards, clinical cases, and structured programs.
 - **Educators** author courses, lessons, quizzes, flashcards, clinical cases, and programs at `/educator`.
 - **Administrators** manage users, content, subscriptions, payments, notifications, and reference data at `/admin`.
 - **Clinicians** use doctor tools, medical reference data (diseases, medications, symptoms), and clinical cases.
@@ -22,7 +22,7 @@ The repository ships without demo accounts or sample clinical content. You creat
 ## Project layout
 
 - `frontend/` — student app, plus the admin and educator portals in the same Vite app
-- `backend/` — REST API and realtime messaging
+- `backend/` — REST API and live notifications
 - `backend/.env.example` and `frontend/.env.example` — configuration templates with no real credentials
 
 ## Setup

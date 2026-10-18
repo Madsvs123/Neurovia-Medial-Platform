@@ -9,10 +9,10 @@ module.exports = {
   roots: ['<rootDir>/tests'],
   moduleNameMapper: bcryptAvailable ? {} : { '^bcrypt$': 'bcryptjs' },
   collectCoverageFrom: [
-    'controllers/conversationController.js',
-    'controllers/messageController.js',
-    'utils/conversationPolicy.js',
-    'routes/conversationRoutes.js',
-    'routes/messageRoutes.js',
+    'controllers/**/*.js',
+    'routes/**/*.js',
+    'utils/**/*.js',
+    'realtime/**/*.js',
+    'middleware/**/*.js',
   ],
 };

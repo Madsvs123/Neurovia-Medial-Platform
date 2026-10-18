@@ -11,7 +11,7 @@ import {
 import {
   FiArrowLeft, FiEdit2, FiSave, FiX, FiTrash2, FiUser, FiUserPlus,
   FiBookOpen, FiClipboard, FiHeart, FiSearch, FiPlus, FiCheckCircle,
-  FiGrid, FiUsers, FiCalendar, FiExternalLink, FiShield, FiAward, FiMessageSquare, FiZap,
+  FiGrid, FiUsers, FiCalendar, FiExternalLink, FiShield, FiAward, FiZap,
   FiUsers as FiEducators,
 } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -618,14 +618,6 @@ const AdminProgramDetail = () => {
                             <Badge colorScheme="primary" variant="solid" fontSize="2xs">Owner</Badge>
                           </HStack>
                         </Box>
-                        <IconButton
-                          icon={<FiMessageSquare />}
-                          size="sm"
-                          variant="ghost"
-                          colorScheme="primary"
-                          aria-label="Message owner"
-                          onClick={(e) => { e.stopPropagation(); navigate(`/admin/messages/new?kind=direct&to=${program.owner?._id}&programId=${program._id}`); }}
-                        />
                       </Flex>
                     )}
                     {/* Assigned educators */}
@@ -645,11 +637,6 @@ const AdminProgramDetail = () => {
                               <Tooltip label="Remove educator">
                                 <IconButton size="xs" icon={<FiTrash2 />} colorScheme="error" variant="ghost"
                                   onClick={() => handleRemoveEducator(eid)} aria-label="Remove" />
-                              </Tooltip>
-                              <Tooltip label="Send message">
-                                <IconButton size="xs" icon={<FiMessageSquare />} variant="ghost" colorScheme="primary"
-                                  onClick={(e) => { e.stopPropagation(); navigate(`/admin/messages/new?kind=direct&to=${eid}&programId=${program._id}`); }}
-                                  aria-label="Message" />
                               </Tooltip>
                             </Flex>
                           </motion.div>

@@ -4,8 +4,7 @@ import {
   Flex, Button, useColorModeValue, Icon, Divider
 } from '@chakra-ui/react';
 import { useParams, Link } from 'react-router-dom';
-import { FiArrowLeft, FiClock, FiCheckCircle, FiPlayCircle, FiMessageSquare } from 'react-icons/fi';
-import { useSelector } from 'react-redux';
+import { FiArrowLeft, FiClock, FiCheckCircle, FiPlayCircle } from 'react-icons/fi';
 import { getLessonById } from '../services/api';
 
 const LessonViewPage = () => {
@@ -14,7 +13,6 @@ const LessonViewPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const cardBg = useColorModeValue('white', 'gray.800');
-  const { userInfo } = useSelector((state) => state.auth);
 
   useEffect(() => {
     const fetchLesson = async () => {
@@ -65,18 +63,6 @@ const LessonViewPage = () => {
         >
           Back to Course
         </Button>
-        {userInfo?.role === 'student' && (
-          <Button
-            as={Link}
-            to={`/messages/new?kind=direct&courseId=${courseId}&lessonId=${lessonId}&subject=${encodeURIComponent(`Question about: ${lesson.title}`)}`}
-            leftIcon={<FiMessageSquare />}
-            variant="outline"
-            colorScheme="teal"
-            size="sm"
-          >
-            Ask your instructor
-          </Button>
-        )}
       </Flex>
 
       <Box bg={cardBg} borderRadius="2xl" boxShadow="xl" overflow="hidden">

@@ -21,7 +21,6 @@ import ClinicalCaseEditor from './pages/ClinicalCaseEditor';
 import Notifications from './pages/Notifications';
 import DoctorTools from './pages/DoctorTools';
 import Settings from './pages/Settings';
-import AdminMessages, { AdminNewMessage, LegacyConversationRedirect } from './pages/Messages';
 
 const AdminApp = () => {
   return (
@@ -55,13 +54,6 @@ const AdminApp = () => {
         <Route path="notifications" element={<Notifications />} />
         <Route path="doctor-tools" element={<DoctorTools />} />
         <Route path="settings" element={<Settings />} />
-        <Route path="messages" element={<AdminMessages />} />
-        <Route path="messages/new" element={<AdminNewMessage />} />
-        <Route path="messages/:threadId" element={<AdminMessages />} />
-        {/* redirects from the previous "conversations" routes */}
-        <Route path="conversations" element={<Navigate to="/admin/messages" replace />} />
-        <Route path="conversations/new" element={<Navigate to="/admin/messages/new" replace />} />
-        <Route path="conversations/:id" element={<LegacyConversationRedirect base="/admin/messages" />} />
       </Route>
       {/* Catch-all: redirect to main login page */}
       <Route path="*" element={<Navigate to="/login" replace />} />

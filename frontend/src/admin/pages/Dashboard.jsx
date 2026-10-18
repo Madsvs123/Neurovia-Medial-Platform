@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { MessagingStatsCard } from '../../features/messaging';
 import {
   Box, Flex, Heading, Text, SimpleGrid, Stat, StatLabel, StatNumber,
   StatHelpText, StatArrow, useColorModeValue, Spinner, Alert, AlertIcon,
@@ -81,9 +80,6 @@ const AdminDashboard = () => {
         <StatCard icon={FiDollarSign} label="Revenue" value={`$${totalRevenue.toLocaleString()}`} sub={`${payments.length} transactions`} bg="#38A169" />
         <StatCard icon={FiTrendingUp} label="Subscriptions" value={subscriptions.length} sub={`${activeSubs.length} active`} bg="#805AD5" />
       </SimpleGrid>
-
-      {/* Support / messaging health */}
-      <Box mb={8}><MessagingStatsCard /></Box>
 
       {/* Charts Row */}
       <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mb={6}>

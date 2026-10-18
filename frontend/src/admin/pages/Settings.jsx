@@ -6,7 +6,6 @@ import {
 import { FiSettings, FiServer, FiDatabase, FiClock } from 'react-icons/fi';
 import { getUsers, getCourses, getSubscriptions, getPayments } from '../services/api';
 import dayjs from 'dayjs';
-import { TemplatesSettings } from '../../features/messaging';
 
 const Settings = () => {
   const cardBg = useColorModeValue('white', 'gray.800');
@@ -84,11 +83,6 @@ const Settings = () => {
           </VStack>
         </Box>
       </SimpleGrid>
-
-      {/* Messaging: quick-reply templates (staff see these filtered by audience) */}
-      <Box mt={6}>
-        <TemplatesSettings />
-      </Box>
     </Box>
   );
 };

@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react';
 import {
   FiBarChart2, FiPackage, FiClipboard, FiHeart, FiUsers, FiLogOut,
-  FiMenu, FiAward, FiHome, FiBell, FiMessageSquare, FiZap,
+  FiMenu, FiAward, FiHome, FiBell, FiZap,
   FiChevronLeft, FiChevronRight,
 } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +25,6 @@ const NAV_ITEMS = [
   { path: '/educator/clinical-cases', name: 'Clinical Cases', icon: FiHeart },
   { path: '/educator/flashcards', name: 'Flashcards', icon: FiZap },
   { path: '/educator/students', name: 'Students', icon: FiUsers },
-  { path: '/educator/messages', name: 'Messages', icon: FiMessageSquare },
 ];
 
 const EducatorLayout = () => {

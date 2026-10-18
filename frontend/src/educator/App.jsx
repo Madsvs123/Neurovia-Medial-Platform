@@ -14,7 +14,6 @@ import EducatorClinicalCases from './pages/ClinicalCases';
 import EducatorClinicalCaseEditor from './pages/ClinicalCaseEditor';
 import EducatorFlashcards from './pages/Flashcards';
 import EducatorStudents from './pages/Students';
-import EducatorMessages, { EducatorNewMessage, LegacyConversationRedirect } from './pages/Messages';
 
 const EducatorApp = () => {
   return (
@@ -36,13 +35,6 @@ const EducatorApp = () => {
         <Route path="clinical-cases/:id" element={<EducatorClinicalCaseEditor />} />
         <Route path="flashcards" element={<EducatorFlashcards />} />
         <Route path="students" element={<EducatorStudents />} />
-        <Route path="messages" element={<EducatorMessages />} />
-        <Route path="messages/new" element={<EducatorNewMessage />} />
-        <Route path="messages/:threadId" element={<EducatorMessages />} />
-        {/* redirects from the previous "conversations" routes */}
-        <Route path="conversations" element={<Navigate to="/educator/messages" replace />} />
-        <Route path="conversations/new" element={<Navigate to="/educator/messages/new" replace />} />
-        <Route path="conversations/:id" element={<LegacyConversationRedirect base="/educator/messages" />} />
       </Route>
       {/* Catch-all: redirect to main login page */}
       <Route path="*" element={<Navigate to="/login" replace />} />

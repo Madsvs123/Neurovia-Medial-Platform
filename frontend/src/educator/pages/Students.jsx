@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
   Box, Heading, Text, SimpleGrid, Spinner, Alert, AlertIcon, Badge, Flex,
-  Button, useColorModeValue, useToast, Icon, Select, HStack, VStack, Avatar, Stat, StatLabel, StatNumber, IconButton, Tooltip
+  Button, useColorModeValue, useToast, Icon, Select, HStack, VStack, Avatar, Stat, StatLabel, StatNumber
 } from '@chakra-ui/react';
-import { FiUsers, FiAward, FiCalendar, FiCheckCircle, FiMessageSquare } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';
+import { FiUsers, FiAward, FiCalendar, FiCheckCircle } from 'react-icons/fi';
 import { getMyPrograms, getEnrollmentsByProgram } from '../services/api';
 import dayjs from 'dayjs';
 
 const Students = () => {
   const toast = useToast();
-  const navigate = useNavigate();
   const [programs, setPrograms] = useState([]);
   const [selectedProgram, setSelectedProgram] = useState('');
   const [students, setStudents] = useState([]);
@@ -109,14 +107,6 @@ const Students = () => {
                         </Text>
                         <Text fontSize="xs" color="gray.500">{user.email || ''}</Text>
                       </Box>
-                      {user._id && (
-                        <Tooltip label="Message student">
-                          <IconButton
-                            icon={<FiMessageSquare />} size="sm" variant="ghost" colorScheme="teal" aria-label="Message student"
-                            onClick={() => navigate(`/educator/messages/new?kind=direct&to=${user._id}&programId=${selectedProgram}`)}
-                          />
-                        </Tooltip>
-                      )}
                     </Flex>
                     <HStack spacing={3} fontSize="xs" color="gray.500">
                       {enrollment.joinedAt && (

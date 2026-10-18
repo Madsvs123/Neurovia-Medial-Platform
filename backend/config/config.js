@@ -62,10 +62,8 @@ const config = {
       windowMs: toInt(process.env.RATE_LIMIT_WINDOW_MS, 15 * 60 * 1000),
       max: toInt(process.env.RATE_LIMIT_MAX, 600),
     },
-    // A second, looser limiter dedicated to the polling-heavy conversation /
-    // notification endpoints (see server.js). These are hit every few
-    // seconds per open tab (messages, unread counts, conversation lists),
-    // so they need a much higher ceiling than regular CRUD traffic.
+    // A second, looser limiter for notification polling (see server.js).
+    // The bell hits these endpoints every few seconds per open tab.
     pollingRateLimiting: {
       windowMs: toInt(process.env.POLLING_RATE_LIMIT_WINDOW_MS, 60 * 1000),
       max: toInt(process.env.POLLING_RATE_LIMIT_MAX, 240),

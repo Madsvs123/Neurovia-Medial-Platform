@@ -1,14 +1,11 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
-import { Routes, Route, Navigate, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import { InboxPage, NewThreadPage, SupportWidget, studentPortal, portalFor } from './features/messaging';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
-import SupportPage from './pages/SupportPage';
 import CoursesPage from './pages/CoursesPage';
 import CourseDetailPage from './pages/CourseDetailPage';
 import LessonViewPage from './pages/LessonViewPage';
@@ -25,18 +22,6 @@ import PlanPage from './pages/PlanPage';
 import SubscriptionPage from './pages/SubscriptionPage';
 import { AuthRoute, PublicRoute } from './components/ProtectedRoute';
 
-const LegacyRedirect = () => {
-  const { id } = useParams();
-  return <Navigate to={`/messages/${id}`} replace />;
-};
-
-// Staff who land on the student /messages routes are sent to their own inbox.
-const StudentMessages = ({ userInfo, page: Page }) => {
-  const portal = portalFor(userInfo?.role);
-  if (portal !== studentPortal) return <Navigate to={portal.basePath} replace />;
-  return <Page portal={studentPortal} currentUser={userInfo} />;
-};
-
 const NotFoundPage = () => (
   <Box textAlign="center" py={20}>
     <h1>404 - Page Not Found</h1>
@@ -44,8 +29,6 @@ const NotFoundPage = () => (
 );
 
 const App = () => {
-  const { userInfo } = useSelector((state) => state.auth);
-
   return (
     <Box minHeight="100vh" display="flex" flexDirection="column">
       <Navbar />
@@ -82,20 +65,9 @@ const App = () => {
               <ProfilePage />
             </AuthRoute>
           } />
-          <Route path="/support" element={<SupportPage />} />
-
-          {/* Messaging (students): full pages + the floating widget below */}
-          <Route path="/messages" element={<AuthRoute><StudentMessages userInfo={userInfo} page={InboxPage} /></AuthRoute>} />
-          <Route path="/messages/new" element={<AuthRoute><StudentMessages userInfo={userInfo} page={NewThreadPage} /></AuthRoute>} />
-          <Route path="/messages/:threadId" element={<AuthRoute><StudentMessages userInfo={userInfo} page={InboxPage} /></AuthRoute>} />
-          {/* legacy deep links from the first messaging version */}
-          <Route path="/conversations" element={<Navigate to="/messages" replace />} />
-          <Route path="/conversations/:id" element={<LegacyRedirect />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Box>
-      {/* Students get the floating launcher; staff use the inbox in their panel. */}
-      {userInfo?.role === 'student' && <SupportWidget currentUser={userInfo} />}
     </Box>
   );
 };
