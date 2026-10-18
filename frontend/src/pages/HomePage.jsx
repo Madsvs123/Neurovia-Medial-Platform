@@ -146,7 +146,7 @@ const HomePage = () => {
             <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align={{ md: 'center' }} gap={4}>
               <Box>
                 <Heading size="lg">Welcome back, {user?.username || 'Student'}!</Heading>
-                <Text opacity={0.9} mt={1}>Continue your medical education journey</Text>
+                <Text opacity={0.9} mt={1}>Pick up a program, course, or quiz where you left off.</Text>
               </Box>
               {hasPrograms && (
                 <Button as={Link} to={`/my-program/${activePrograms[0]._id}`} colorScheme="whiteAlpha" size="lg" rightIcon={<FiArrowRight />}>
