@@ -210,7 +210,10 @@ const activityLogRoutes = require('./routes/activityLogRoutes');
 
 // Basic route
 app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to Neurovia API - AI-Powered Medical Education Platform' });
+  res.json({
+    status: 'ok',
+    message: 'Welcome to Neurovia API - AI-Powered Medical Education Platform',
+  });
 });
 
 // API routes
